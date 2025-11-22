@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: rgb(88, 173, 194);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .calculator{
+      background-color: black;
+      height: 530px;
+      width: 330px;
+      border-radius: 20px;
+      padding: 30px;
+      
+
+    }
+    #display{
+      background-color: white;
+      color: rgba(76, 71, 71, 0.37);
+      padding: 10px;
+      width: 310px;
+      border-radius: 10px;
+      height: 30px;
+      margin-bottom: 15px;
+      text-align: right;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:20px ;
+      color: black;
+      box-shadow: 1px 1px 1px;
+
+    }
+    button{
+      height:55px;
+      width: 57px;
+      border-radius:10px;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin:10px;
+      box-shadow: 2px 3px 1px;
+      
+    
+    }
+    #op{
+      background-color: rgba(122, 106, 122, 0.747);
+      
+    }
+    #equal{
+      background-color: rgba(0, 128, 0, 0.767);
+      height: 80px;
+      
+    }
+    #sqrt{
+      margin-left:30px;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="calculator" >
+    <input type="text" id="display" disabled>
+    <div class="btn">
+    <button onclick="append('(')">(</button>
+    <button onclick="append(')')">)</button>
+    <button onclick="append('%')">%</button>
+    <button onclick="clearDisplay()">Ac</button>
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('-')" id="op">-</button>
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick= "append('*')" id="op">*</button>
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="append('/')" id="op">/</button>
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+        <button onclick="append('+')" id="op" >+</button>
+    <button onclick="calculate()" id="equal">=</button>
+      <!--<button onclick="sin()">sin</button>
+    <button onclick="cose()">cos</button>
+    <button onclick="tan()">tan</button>  -->
+    <button onclick="power()">^</button>
+        <button onclick="backspace()" style="width: 120px;">←</button>
+     <button onclick="sqrt()" id="sqrt">√</button>
+    
+    </div>
+  </div>
+  <script>
+    function append(value){
+      document.getElementById('display').value +=value
+    }
+function calculate() {
+        let result = eval(document.getElementById("display").value);
+        document.getElementById("display").value = result;
+    }
+    function backspace() {
+        let text = document.getElementById("display").value;
+        document.getElementById("display").value = text.slice(0, -1);
+    }
+    function power(){
+        let pow=document.getElementById('display').value +="**";
+    }
+    function clearDisplay() {
+        document.getElementById("display").value = "";
+    }
+    function backspace() {
+               let text = document.getElementById("display").value;
+       document.getElementById("display").value = text.slice(0, -1);
+    }
+
+   /* function sin() {
+    if (Document.getElementById('display').value === "") {
+        document.getElementById('display').value = "Error";
+        return;
+    }
+    document.getElementById('display').value = Math.sin(eval(document.getElementById('display').value) * Math.PI / 180);
+}
+
+    function cose() {
+        document.getElementById('dsiplay').value = Math.cos(eval(document.getElementById('display').value) * Math.PI / 180);
+    }
+     function tan() {
+        document.getElementById('dsiplay').value = Math.tan(eval(document.getElementById('display').value) * Math.PI / 180);
+    } */
+    function sqrt(){
+      document.getElementById('display').value=Math.sqrt(eval(document.getElementById('display').value))
+    } 
+
+  </script>
+</body>
+</html>
